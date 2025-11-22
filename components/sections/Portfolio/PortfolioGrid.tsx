@@ -4,10 +4,12 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PortfolioFilter } from "./PortfolioFilter";
 import { PortfolioCard } from "./PortfolioCard";
-import { portfolioItems, Category } from "@/lib/portfolio-data";
+import { PortfolioModal } from "./PortfolioModal";
+import { portfolioItems, Category, PortfolioItem } from "@/lib/portfolio-data";
 
 export function PortfolioGrid() {
   const [filter, setFilter] = useState<Category>("all");
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
   const filteredItems = portfolioItems.filter(
     (item) => filter === "all" || item.category === filter
@@ -23,10 +25,20 @@ export function PortfolioGrid() {
       >
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item) => (
-            <PortfolioCard key={item.id} item={item} />
+            <PortfolioCard
+              key={item.id}
+              item={item}
+              onClick={setSelectedItem}
+            />
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <PortfolioModal
+        item={selectedItem}
+        isOpen={!!selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
     </div>
   );
 }

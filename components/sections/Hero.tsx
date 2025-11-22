@@ -13,12 +13,30 @@ export function Hero() {
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <ParallaxSection offset={30} className="absolute inset-0">
+          {/* Video Background */}
+          <div className="absolute inset-0 w-full h-full">
+            {/* Placeholder for video - User to provide public/images/hero/hero-video.mp4 */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/images/hero/background.png"
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
+            >
+              <source src="/images/hero/hero-video.mp4" type="video/mp4" />
+            </video>
+
+            {/* Fallback/Overlay Image (if video fails or while loading, though poster handles loading) */}
+            <div className="absolute inset-0 bg-darkBg/60" />
+          </div>
+
           {/* Subtle Grid Pattern */}
-          <div className="absolute inset-0 bg-size-[4rem_4rem] bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
+          <div className="absolute inset-0 bg-size-[4rem_4rem] bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10 mix-blend-overlay" />
         </ParallaxSection>
 
         {/* Radial Gradient for depth */}
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-darkBg/50 to-darkBg" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-darkBg/80 to-darkBg" />
       </div>
 
       <div className="container relative z-10 px-4 mx-auto text-center">

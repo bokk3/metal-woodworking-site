@@ -8,9 +8,10 @@ import { MagneticWrapper } from "@/components/effects/MagneticWrapper";
 
 interface PortfolioCardProps {
   item: PortfolioItem;
+  onClick: (item: PortfolioItem) => void;
 }
 
-export function PortfolioCard({ item }: PortfolioCardProps) {
+export function PortfolioCard({ item, onClick }: PortfolioCardProps) {
   return (
     <MagneticWrapper className="h-full">
       <motion.div
@@ -20,6 +21,7 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
         className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer bg-card h-full"
+        onClick={() => onClick(item)}
       >
         <Image
           src={item.image}
