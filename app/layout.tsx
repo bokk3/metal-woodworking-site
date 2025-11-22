@@ -10,11 +10,13 @@ import { ContactWidget } from "@/components/ui/ContactWidget";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

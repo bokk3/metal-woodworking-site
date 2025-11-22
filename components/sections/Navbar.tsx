@@ -63,9 +63,10 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          className="md:hidden p-2 text-foreground hover:text-bronze transition-colors"
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation menu"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -78,7 +79,10 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border/40 overflow-hidden"
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-background border-t border-border/40 overflow-hidden"
+            role="navigation"
+            aria-label="Mobile navigation"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
               {navItems.map((item) => (
