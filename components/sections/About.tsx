@@ -25,9 +25,10 @@ export function About() {
           >
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
               <Image
-                src="/images/hero/background.png" // Using hero bg as placeholder for workshop shot
+                src="/images/hero/background.png"
                 alt="MetalCraft Workshop"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-black/20" />
@@ -35,9 +36,10 @@ export function About() {
             {/* Decorative Element */}
             <div className="absolute -bottom-6 -right-6 w-2/3 aspect-[4/3] rounded-lg overflow-hidden border-4 border-background shadow-xl hidden md:block">
               <Image
-                src="/images/portfolio/metal-table.png" // Using portfolio item as placeholder
+                src="/images/portfolio/metal-table.png"
                 alt="Detail work"
                 fill
+                sizes="33vw"
                 className="object-cover"
               />
             </div>
