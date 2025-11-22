@@ -5,6 +5,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ContactWidget } from "@/components/ui/ContactWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -62,6 +63,7 @@ export default function RootLayout({
       >
         <ScrollProgress />
         <CustomCursor />
+        <ContactWidget />
         <Navbar />
         <main className="grow">{children}</main>
         <Footer />

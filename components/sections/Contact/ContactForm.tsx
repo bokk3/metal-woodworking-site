@@ -4,9 +4,27 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Slider } from "@/components/ui/slider";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { submitContactForm } from "@/app/actions/contact";
-import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import {
+  Loader2,
+  CheckCircle,
+  AlertCircle,
+  Calendar as CalendarIcon,
+  Upload,
+  X,
+} from "lucide-react";
 import { motion } from "framer-motion";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +33,20 @@ export function ContactForm() {
   const [validationErrors, setValidationErrors] = useState<
     Record<string, string>
   >({});
+  const [budget, setBudget] = useState([5000]);
+  const [preferredContact, setPreferredContact] = useState("email");
+  const [appointmentDate, setAppointmentDate] = useState<Date | undefined>();
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const removeFile = () => {
+    setSelectedFile(null);
+  };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -53,6 +85,10 @@ export function ContactForm() {
         setSuccess(true);
         // Reset form
         event.currentTarget.reset();
+        setBudget([5000]);
+        setPreferredContact("email");
+        setAppointmentDate(undefined);
+        setSelectedFile(null);
       } else {
         setError(result.error || "Something went wrong");
       }
@@ -164,6 +200,141 @@ export function ContactForm() {
             <option value="design">Design Consultation</option>
             <option value="other">Other</option>
           </select>
+        </div>
+      </div>
+
+      {/* Budget Range Slider */}
+      <div className="space-y-4">
+        <label className="text-sm font-medium text-foreground">
+          Project Budget Range: ${budget[0].toLocaleString()}+
+        </label>
+        <Slider
+          value={budget}
+          onValueChange={setBudget}
+          max={50000}
+          min={1000}
+          step={1000}
+          className="w-full"
+        />
+        <div className="flex justify-between text-xs text-muted-foreground">
+          <span>$1,000</span>
+          <span>$50,000+</span>
+        </div>
+        <input type="hidden" name="budget" value={budget[0]} />
+      </div>
+
+      {/* Preferred Contact Method */}
+      <div className="space-y-3">
+        <label className="text-sm font-medium text-foreground">
+          Preferred Contact Method
+        </label>
+        <RadioGroup
+          value={preferredContact}
+          onValueChange={setPreferredContact}
+        >
+          <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="email" id="email-contact" />
+              <Label htmlFor="email-contact">Email</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="phone" id="phone-contact" />
+              <Label htmlFor="phone-contact">Phone</Label>
+            </div>
+          </div>
+        </RadioGroup>
+        <input type="hidden" name="preferredContact" value={preferredContact} />
+      </div>
+
+      {/* Appointment Date Picker */}
+      <div className="space-y-2">
+        <label className="text-sm font-medium text-foreground">
+          Preferred Appointment Date (Optional)
+        </label>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              className={cn(
+                "w-full justify-start text-left font-normal bg-background",
+                !appointmentDate && "text-muted-foreground"
+              )}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {appointmentDate ? format(appointmentDate, "PPP") : "Pick a date"}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0" align="start">
+            <Calendar
+              mode="single"
+              selected={appointmentDate}
+              onSelect={setAppointmentDate}
+              initialFocus
+              disabled={(date) => date < new Date()}
+            />
+          </PopoverContent>
+        </Popover>
+        {appointmentDate && (
+          <input
+            type="hidden"
+            name="appointmentDate"
+            value={appointmentDate.toISOString()}
+          />
+        )}
+      </div>
+
+      {/* File Upload */}
+      <div className="space-y-2">
+        <label className="text-sm font-medium text-foreground">
+          Reference Images (Optional)
+        </label>
+        <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-bronze/50 transition-colors">
+          {selectedFile ? (
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Upload className="h-4 w-4 text-bronze" />
+                <span className="text-sm text-foreground">
+                  {selectedFile.name}
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  ({(selectedFile.size / 1024).toFixed(1)} KB)
+                </span>
+              </div>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={removeFile}
+                className="h-8 w-8 p-0"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          ) : (
+            <>
+              <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-2" />
+              <p className="text-sm text-muted-foreground mb-2">
+                Click to upload or drag and drop
+              </p>
+              <p className="text-xs text-muted-foreground">
+                PNG, JPG up to 10MB
+              </p>
+            </>
+          )}
+          <input
+            type="file"
+            id="fileUpload"
+            name="fileUpload"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          {!selectedFile && (
+            <label
+              htmlFor="fileUpload"
+              className="cursor-pointer absolute inset-0"
+            />
+          )}
         </div>
       </div>
 
