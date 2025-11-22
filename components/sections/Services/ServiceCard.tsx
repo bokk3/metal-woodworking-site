@@ -17,7 +17,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group p-8 rounded-lg bg-card border border-border/50 hover:border-bronze/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(205,127,50,0.1)] hover:-translate-y-1"
+      className="group p-8 rounded-lg bg-card border border-border/50 hover:border-bronze/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(205,127,50,0.1)] dark:hover:shadow-[0_0_20px_rgba(205,127,50,0.1)] hover:shadow-lg dark:hover:shadow-[0_0_20px_rgba(205,127,50,0.1)] shadow-sm hover:-translate-y-1"
     >
       <div className="mb-6 inline-block p-3 rounded-full bg-bronze/10 text-bronze group-hover:bg-bronze group-hover:text-white transition-colors duration-300">
         <Icon className="h-8 w-8" />

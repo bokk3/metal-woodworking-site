@@ -20,7 +20,7 @@ export function PortfolioCard({ item, onClick }: PortfolioCardProps) {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
-        className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer bg-card h-full"
+        className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer bg-card h-full shadow-md dark:shadow-none hover:shadow-xl dark:hover:shadow-none transition-shadow duration-300"
         onClick={() => onClick(item)}
       >
         <Image

@@ -23,7 +23,7 @@ export function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg dark:shadow-none">
               <Image
                 src="/images/hero/background.png"
                 alt="MetalCraft Workshop"
@@ -31,10 +31,10 @@ export function About() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-black/20 dark:bg-black/20" />
             </div>
             {/* Decorative Element */}
-            <div className="absolute -bottom-6 -right-6 w-2/3 aspect-[4/3] rounded-lg overflow-hidden border-4 border-background shadow-xl hidden md:block">
+            <div className="absolute -bottom-6 -right-6 w-2/3 aspect-[4/3] rounded-lg overflow-hidden border-4 border-background shadow-2xl dark:shadow-xl hidden md:block">
               <Image
                 src="/images/portfolio/metal-table.png"
                 alt="Detail work"

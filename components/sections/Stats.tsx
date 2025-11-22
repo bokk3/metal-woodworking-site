@@ -54,7 +54,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section className="py-20 bg-darkBg border-y border-border/20">
+    <section className="py-20 bg-muted dark:bg-muted border-y border-border/20 bg-gradient-to-b from-background via-muted/50 to-background">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
@@ -74,7 +74,7 @@ export function Stats() {
               <div className="mb-2">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className={cn(typography.label, "text-gray-400")}>
+              <p className={cn(typography.label, "text-muted-foreground")}>
                 {stat.label}
               </p>
             </motion.div>

@@ -6,6 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ContactWidget } from "@/components/ui/ContactWidget";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -59,16 +60,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${oswald.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
       >
-        <ScrollProgress />
-        <CustomCursor />
-        <ContactWidget />
-        <Navbar />
-        <main className="grow">{children}</main>
-        <Footer />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const storageKey = 'metalcraft-theme';
+                  const defaultTheme = 'system';
+                  const stored = localStorage.getItem(storageKey) || defaultTheme;
+                  let theme;
+                  if (stored === 'system') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  } else {
+                    theme = stored;
+                  }
+                  document.documentElement.classList.add(theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+        <ThemeProvider defaultTheme="system" storageKey="metalcraft-theme">
+          <ScrollProgress />
+          <CustomCursor />
+          <ContactWidget />
+          <Navbar />
+          <main className="grow">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
