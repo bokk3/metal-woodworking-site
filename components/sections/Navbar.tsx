@@ -9,11 +9,13 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/#home" },
+  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Services", href: "/#services" },
+  { name: "About", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
+  { name: "Blog", href: "/blog" },
+  { name: "Quote", href: "/quote-calculator" },
 ];
 
 export function Navbar() {

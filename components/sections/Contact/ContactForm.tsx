@@ -288,7 +288,10 @@ export function ContactForm() {
         <label className="text-sm font-medium text-foreground">
           Reference Images (Optional)
         </label>
-        <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-bronze/50 transition-colors">
+        <label
+          htmlFor="fileUpload"
+          className="block border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-bronze/50 transition-colors cursor-pointer"
+        >
           {selectedFile ? (
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -304,7 +307,10 @@ export function ContactForm() {
                 type="button"
                 variant="ghost"
                 size="sm"
-                onClick={removeFile}
+                onClick={(e) => {
+                  e.preventDefault();
+                  removeFile();
+                }}
                 className="h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
@@ -329,13 +335,7 @@ export function ContactForm() {
             onChange={handleFileChange}
             className="hidden"
           />
-          {!selectedFile && (
-            <label
-              htmlFor="fileUpload"
-              className="cursor-pointer absolute inset-0"
-            />
-          )}
-        </div>
+        </label>
       </div>
 
       <div className="space-y-2">
