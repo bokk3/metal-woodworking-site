@@ -1,12 +1,8 @@
-version: '3.8'
-
 services:
   metalcraft-web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 3bok/metal-woodworking-site:latest
     ports:
-      - "3000:3000"
+      - "3003:3000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
