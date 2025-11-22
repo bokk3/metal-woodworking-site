@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ParallaxSection } from "@/components/effects/ParallaxSection";
+import { typography } from "@/lib/typography";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
@@ -25,9 +27,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6">
+          <h1 className={cn(typography.h1, "text-white mb-6")}>
             Crafting <span className="text-bronze">Metal</span> &{" "}
-            <span className="text-steel">Wood</span> into Art
+            <span className="text-steel">Wood</span> into{" "}
+            <br className="hidden md:block" />
+            Timeless Legacies
           </h1>
         </motion.div>
 
@@ -36,9 +40,14 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
         >
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            Custom metalwork and woodworking for residential and commercial
-            projects. Where industrial strength meets natural beauty.
+          <p
+            className={cn(
+              typography.bodyLarge,
+              "text-gray-300 mb-10 max-w-2xl mx-auto"
+            )}
+          >
+            Where industrial precision meets organic warmth. We design and build
+            bespoke furniture and architectural elements that define spaces.
           </p>
         </motion.div>
 

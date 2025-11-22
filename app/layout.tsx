@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -8,6 +8,11 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
 });
 
@@ -31,7 +36,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Metal & Wood",
+    url: "https://metalcraft.com",
+    title: "MetalCraft | Custom Metal & Woodworking",
+    description:
+      "Premium handcrafted metal and wood furniture, custom fabrication, and architectural elements.",
+    siteName: "MetalCraft",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MetalCraft | Custom Metal & Woodworking",
+    description:
+      "Premium handcrafted metal and wood furniture, custom fabrication, and architectural elements.",
   },
 };
 
@@ -43,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
+        className={`${inter.variable} ${oswald.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
       >
         <ScrollProgress />
         <CustomCursor />
