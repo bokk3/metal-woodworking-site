@@ -1,6 +1,6 @@
 services:
   metalcraft-web:
-    image: 3bok/metal-woodworking-site:latest
+    image: 3bok/metalcraft-web:latest
     ports:
       - "3003:3000"
     environment:
