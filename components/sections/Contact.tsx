@@ -18,7 +18,7 @@ export function Contact() {
           className="text-center mb-20"
         >
           <h2 className={cn(typography.h2, "text-foreground mb-6")}>
-            Start Your <span className="text-bronze">Project</span>
+            Start Uw <span className="text-bronze">Project</span>
           </h2>
           <p
             className={cn(
@@ -26,8 +26,7 @@ export function Contact() {
               "text-muted-foreground max-w-2xl mx-auto"
             )}
           >
-            Ready to transform your space? Contact us today for a consultation.
-            We're here to bring your ideas to life.
+            Klaar om uw ruimte te transformeren? Neem vandaag contact met ons op voor een consultatie. We zijn er om uw ideeën tot leven te brengen.
           </p>
         </motion.div>
 
@@ -42,7 +41,7 @@ export function Contact() {
           >
             <div className="bg-card p-8 rounded-lg border border-border/50 h-full">
               <h3 className="text-xl font-bold text-foreground mb-6">
-                Contact Information
+                Contactgegevens
               </h3>
 
               <div className="space-y-6">
@@ -52,7 +51,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      Phone
+                      Telefoon
                     </p>
                     <p className="text-foreground font-semibold">
                       +1 (555) 123-4567
@@ -66,7 +65,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      Email
+                      E-mail
                     </p>
                     <p className="text-foreground font-semibold">
                       hello@metalcraft.com
@@ -80,7 +79,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      Workshop
+                      Werkplaats
                     </p>
                     <p className="text-foreground font-semibold">
                       123 Artisan Way
@@ -93,20 +92,20 @@ export function Contact() {
 
               <div className="mt-12">
                 <h4 className="text-sm font-bold text-foreground mb-4">
-                  Business Hours
+                  Openingsuren
                 </h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span className="text-foreground">8:00 AM - 6:00 PM</span>
+                    <span>Maandag - Vrijdag</span>
+                    <span className="text-foreground">8:00 - 18:00</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Saturday</span>
-                    <span className="text-foreground">9:00 AM - 4:00 PM</span>
+                    <span>Zaterdag</span>
+                    <span className="text-foreground">9:00 - 16:00</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="text-foreground">Closed</span>
+                    <span>Zondag</span>
+                    <span className="text-foreground">Gesloten</span>
                   </li>
                 </ul>
               </div>

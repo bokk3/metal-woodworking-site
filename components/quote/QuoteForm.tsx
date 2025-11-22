@@ -51,7 +51,7 @@ export function QuoteForm() {
         {/* Project Type Selection */}
         <div>
           <Label className="text-lg font-semibold mb-4 block">
-            1. Select Project Type
+            1. Selecteer Projecttype
           </Label>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {projectTypes.map((type) => (
@@ -80,7 +80,7 @@ export function QuoteForm() {
         {/* Material Selection */}
         <div>
           <Label className="text-lg font-semibold mb-4 block">
-            2. Choose Material
+            2. Kies Materiaal
           </Label>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {materials.map((mat) => (
@@ -107,7 +107,7 @@ export function QuoteForm() {
                     {mat.description}
                   </p>
                   <p className="text-sm text-bronze mt-1">
-                    ${mat.baseRate}/sq ft
+                    ${mat.baseRate}/m²
                   </p>
                 </div>
               </button>
@@ -118,11 +118,11 @@ export function QuoteForm() {
         {/* Dimensions */}
         <div>
           <Label className="text-lg font-semibold mb-4 block">
-            3. Enter Dimensions
+            3. Voer Afmetingen In
           </Label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="length">Length (inches)</Label>
+              <Label htmlFor="length">Lengte (inch)</Label>
               <Input
                 id="length"
                 type="number"
@@ -138,7 +138,7 @@ export function QuoteForm() {
               />
             </div>
             <div>
-              <Label htmlFor="width">Width (inches)</Label>
+              <Label htmlFor="width">Breedte (inch)</Label>
               <Input
                 id="width"
                 type="number"
@@ -154,7 +154,7 @@ export function QuoteForm() {
               />
             </div>
             <div>
-              <Label htmlFor="quantity">Quantity</Label>
+              <Label htmlFor="quantity">Aantal</Label>
               <Input
                 id="quantity"
                 type="number"
@@ -175,11 +175,11 @@ export function QuoteForm() {
         {/* Contact Info (Optional) */}
         <div>
           <Label className="text-lg font-semibold mb-4 block">
-            4. Your Information (Optional)
+            4. Uw Gegevens (Optioneel)
           </Label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Naam</Label>
               <Input
                 id="name"
                 value={formData.name || ""}
@@ -191,7 +191,7 @@ export function QuoteForm() {
               />
             </div>
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
                 type="email"
@@ -204,7 +204,7 @@ export function QuoteForm() {
               />
             </div>
             <div>
-              <Label htmlFor="phone">Phone</Label>
+              <Label htmlFor="phone">Telefoon</Label>
               <Input
                 id="phone"
                 type="tel"
@@ -218,7 +218,7 @@ export function QuoteForm() {
             </div>
           </div>
           <div className="mt-4">
-            <Label htmlFor="notes">Additional Notes</Label>
+            <Label htmlFor="notes">Aanvullende Opmerkingen</Label>
             <Textarea
               id="notes"
               value={formData.notes || ""}
@@ -227,7 +227,7 @@ export function QuoteForm() {
               }
               className="mt-1"
               rows={3}
-              placeholder="Any specific requirements or details..."
+              placeholder="Specifieke vereisten of details..."
             />
           </div>
         </div>
@@ -245,7 +245,7 @@ export function QuoteForm() {
             className="w-full bg-bronze hover:bg-bronze-dark text-white text-lg py-6"
           >
             <Calculator className="mr-2 h-5 w-5" />
-            Calculate Estimate
+            Schatting Berekenen
           </Button>
         </div>
 
@@ -257,19 +257,18 @@ export function QuoteForm() {
             className="bg-card border-2 border-bronze rounded-lg p-8"
           >
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Estimated Quote
+              Geschatte Offerte
             </h3>
             <div className="space-y-2">
               <p className="text-muted-foreground">
-                Price Range: ${range.min.toLocaleString()} - $
+                Prijsbereik: ${range.min.toLocaleString()} - $
                 {range.max.toLocaleString()}
               </p>
               <p className="text-4xl font-bold text-bronze">
                 ${estimatedPrice.toLocaleString()}
               </p>
               <p className="text-sm text-muted-foreground mt-4">
-                * This is an estimate. Final pricing may vary based on project
-                complexity and material availability.
+                * Dit is een schatting. De uiteindelijke prijs kan variëren op basis van projectcomplexiteit en materiaalbeschikbaarheid.
               </p>
             </div>
             <div className="mt-6 flex gap-4">
@@ -278,10 +277,10 @@ export function QuoteForm() {
                 className="bg-bronze hover:bg-bronze-dark text-white"
               >
                 <FileDown className="mr-2 h-4 w-4" />
-                Download PDF Quote
+                PDF Offerte Downloaden
               </Button>
               <Button variant="outline" asChild>
-                <a href="/contact">Contact Us to Proceed</a>
+                <a href="/contact">Neem Contact Op om Door te Gaan</a>
               </Button>
             </div>
           </motion.div>

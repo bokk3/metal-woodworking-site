@@ -55,8 +55,7 @@ export function Footer() {
               METAL<span className="text-bronze">CRAFT</span>
             </h3>
             <p className="text-sm leading-relaxed max-w-xs">
-              Premium handcrafted metal and wood furniture designed to elevate
-              your living and working spaces. Built to last, styled to impress.
+              Premium handgemaakte metaal- en houten meubels ontworpen om uw woon- en werkruimtes te verhogen. Gebouwd om te blijven, gestyled om te imponeren.
             </p>
             <div className="flex space-x-4 pt-2">
               <Link href="#" className="hover:text-primary transition-colors">
@@ -81,7 +80,7 @@ export function Footer() {
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">
-              Quick Links
+              Snelle Links
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -97,7 +96,7 @@ export function Footer() {
                   href="#services"
                   className="hover:text-primary transition-colors"
                 >
-                  Services
+                  Diensten
                 </Link>
               </li>
               <li>
@@ -105,7 +104,7 @@ export function Footer() {
                   href="#about"
                   className="hover:text-primary transition-colors"
                 >
-                  About Us
+                  Over Ons
                 </Link>
               </li>
               <li>
@@ -122,7 +121,7 @@ export function Footer() {
           {/* Column 3: Contact */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">
-              Contact Us
+              Neem Contact Op
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
@@ -153,16 +152,16 @@ export function Footer() {
           {/* Column 4: Newsletter */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">
-              Get Inspired
+              Laat U Inspireren
             </h3>
             <p className="text-sm">
-              Subscribe for project ideas, design tips, and exclusive offers.
+              Abonneer u op projectideeën, ontwerptips en exclusieve aanbiedingen.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-2">
               <div className="relative">
                 <Input
                   type="email"
-                  placeholder="Your email"
+                  placeholder="Uw e-mail"
                   value={email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setEmail(e.target.value)
@@ -180,10 +179,10 @@ export function Footer() {
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Subscribing...
+                    Abonneren...
                   </>
                 ) : (
-                  "Subscribe"
+                  "Abonneren"
                 )}
               </Button>
               <AnimatePresence>
@@ -195,7 +194,7 @@ export function Footer() {
                     className="flex items-center gap-2 text-green-500 text-sm"
                   >
                     <CheckCircle className="h-4 w-4" />
-                    <span>Thanks for subscribing!</span>
+                    <span>Bedankt voor uw abonnement!</span>
                   </motion.div>
                 )}
                 {error && (
@@ -214,7 +213,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border/20 text-center text-sm">
           <p>
-            &copy; {new Date().getFullYear()} MetalCraft. All rights reserved.
+            &copy; {new Date().getFullYear()} MetalCraft. Alle rechten voorbehouden.
           </p>
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function QuoteCalculatorPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className={cn(typography.h1, "text-foreground mb-4")}>
-            Quote <span className="text-bronze">Calculator</span>
+            Offerte <span className="text-bronze">Calculator</span>
           </h1>
           <p
             className={cn(
@@ -23,8 +23,7 @@ export default function QuoteCalculatorPage() {
               "text-muted-foreground max-w-2xl mx-auto"
             )}
           >
-            Get an instant estimate for your custom project. Select your options
-            below and we&apos;ll calculate a price range.
+            Krijg een directe schatting voor uw aangepaste project. Selecteer uw opties hieronder en we berekenen een prijsbereik.
           </p>
         </div>
 
@@ -34,11 +33,7 @@ export default function QuoteCalculatorPage() {
         {/* Disclaimer */}
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-            <strong>Note:</strong> This calculator provides estimated pricing
-            based on typical projects. Every custom piece is unique, and final
-            pricing will be determined after discussing your specific
-            requirements, reviewing designs, and assessing complexity. Contact
-            us for a detailed consultation and accurate quote.
+            <strong>Opmerking:</strong> Deze calculator geeft geschatte prijzen op basis van typische projecten. Elk op maat gemaakt stuk is uniek, en de uiteindelijke prijs wordt bepaald na bespreking van uw specifieke vereisten, beoordeling van ontwerpen en beoordeling van complexiteit. Neem contact met ons op voor een gedetailleerd consult en nauwkeurige offerte.
           </p>
         </div>
       </div>

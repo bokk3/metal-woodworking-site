@@ -59,7 +59,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={cn(typography.h2, "text-foreground mb-6")}>
-            Client <span className="text-bronze">Stories</span>
+            Klant <span className="text-bronze">Verhalen</span>
           </h2>
           <p
             className={cn(
@@ -67,8 +67,7 @@ export function Testimonials() {
               "text-muted-foreground max-w-2xl mx-auto"
             )}
           >
-            Don't just take our word for it. Hear from the architects,
-            designers, and homeowners we've had the privilege to work with.
+            Geloof ons niet zomaar op ons woord. Luister naar de architecten, ontwerpers en huiseigenaren waarmee we het voorrecht hebben gehad om samen te werken.
           </p>
         </div>
 

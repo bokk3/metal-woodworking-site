@@ -8,30 +8,30 @@ import { MessageSquare, PenTool, Hammer, Truck } from "lucide-react";
 const steps = [
   {
     id: 1,
-    title: "Consultation",
+    title: "Consultatie",
     description:
-      "We start by understanding your vision, requirements, and the space where the piece will live.",
+      "We beginnen met het begrijpen van uw visie, vereisten en de ruimte waar het stuk zal staan.",
     icon: MessageSquare,
   },
   {
     id: 2,
-    title: "Design",
+    title: "Ontwerp",
     description:
-      "Our team creates detailed 3D models and technical drawings for your approval.",
+      "Ons team maakt gedetailleerde 3D-modellen en technische tekeningen voor uw goedkeuring.",
     icon: PenTool,
   },
   {
     id: 3,
-    title: "Fabrication",
+    title: "Vervaardiging",
     description:
-      "Master craftsmen bring the design to life using premium materials and precision techniques.",
+      "Meester-ambachtslieden brengen het ontwerp tot leven met premium materialen en precisietechnieken.",
     icon: Hammer,
   },
   {
     id: 4,
-    title: "Installation",
+    title: "Installatie",
     description:
-      "We ensure perfect placement and setup, leaving you with a flawless finished product.",
+      "We zorgen voor perfecte plaatsing en opstelling, waardoor u een vlekkeloos afgewerkt product krijgt.",
     icon: Truck,
   },
 ];
@@ -45,7 +45,7 @@ export function Process() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className={cn(typography.h2, "text-foreground mb-6")}>
-            Our <span className="text-bronze">Process</span>
+            Ons <span className="text-bronze">Proces</span>
           </h2>
           <p
             className={cn(
@@ -53,8 +53,7 @@ export function Process() {
               "text-muted-foreground max-w-2xl mx-auto"
             )}
           >
-            From concept to completion, we follow a rigorous workflow to ensure
-            every detail meets our exacting standards.
+            Van concept tot voltooiing volgen we een rigoureuze workflow om ervoor te zorgen dat elk detail aan onze veeleisende normen voldoet.
           </p>
         </div>
 

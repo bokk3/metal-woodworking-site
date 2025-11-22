@@ -9,28 +9,28 @@ import { Hammer, Trophy, Users, Clock } from "lucide-react";
 const stats = [
   {
     id: 1,
-    label: "Projects Completed",
+    label: "Projecten Voltooid",
     value: 150,
     suffix: "+",
     icon: Hammer,
   },
   {
     id: 2,
-    label: "Years of Experience",
+    label: "Jaar Ervaring",
     value: 12,
     suffix: "+",
     icon: Clock,
   },
   {
     id: 3,
-    label: "Client Satisfaction",
+    label: "Klanttevredenheid",
     value: 100,
     suffix: "%",
     icon: Users,
   },
   {
     id: 4,
-    label: "Design Awards",
+    label: "Ontwerp Prijzen",
     value: 8,
     suffix: "",
     icon: Trophy,

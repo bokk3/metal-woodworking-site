@@ -52,7 +52,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
           <h1 className={cn(typography.h1, "text-foreground mb-6")}>
-            Crafting{" "}
+            Vervaardigen van{" "}
             <span 
               className="inline-block bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
               style={{
@@ -64,11 +64,11 @@ export function Hero() {
                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
               }}
             >
-              Metal
+              Metaal
             </span>{" "}
-            & <span className="text-bronze">Wood</span> into{" "}
+            & <span className="text-bronze">Hout</span> tot{" "}
             <br className="hidden md:block" />
-            Timeless Legacies
+            Tijdloze Erfenissen
           </h1>
         </motion.div>
 
@@ -83,8 +83,7 @@ export function Hero() {
               "text-muted-foreground mb-10 max-w-2xl mx-auto"
             )}
           >
-            Where industrial precision meets organic warmth. We design and build
-            bespoke furniture and architectural elements that define spaces.
+            Waar industriële precisie organische warmte ontmoet. We ontwerpen en bouwen op maat gemaakte meubels en architecturale elementen die ruimtes definiëren.
           </p>
         </motion.div>
 
@@ -98,7 +97,7 @@ export function Hero() {
             size="lg"
             className="bg-bronze hover:bg-bronze-dark text-white font-semibold px-8 py-6 text-lg rounded-md transition-all duration-300 shadow-[0_0_15px_rgba(205,127,50,0.3)] hover:shadow-[0_0_25px_rgba(205,127,50,0.5)]"
           >
-            View Portfolio
+            Bekijk Portfolio
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button
@@ -106,7 +105,7 @@ export function Hero() {
             size="lg"
             className="border-bronze text-bronze hover:bg-bronze hover:text-white font-semibold px-8 py-6 text-lg rounded-md transition-all duration-300"
           >
-            Get a Quote
+            Offerte Aanvragen
           </Button>
         </motion.div>
       </div>

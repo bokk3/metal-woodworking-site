@@ -22,35 +22,35 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   title: {
-    default: "MetalCraft | Custom Metal & Woodworking",
+    default: "MetalCraft | Op Maat Metaal & Houtwerk",
     template: "%s | MetalCraft",
   },
   description:
-    "Premium handcrafted metal and wood furniture, custom fabrication, and architectural elements. Designed to elevate your living and working spaces.",
+    "Premium handgemaakte metaal- en houten meubels, op maat vervaardiging en architecturale elementen. Ontworpen om uw woon- en werkruimtes te verhogen.",
   keywords: [
-    "metalwork",
-    "woodworking",
-    "custom furniture",
-    "fabrication",
-    "welding",
-    "industrial design",
+    "metaalwerk",
+    "houtwerk",
+    "op maat meubels",
+    "vervaardiging",
+    "lassen",
+    "industrieel ontwerp",
   ],
   authors: [{ name: "MetalCraft Team" }],
   creator: "MetalCraft",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "nl_BE",
     url: "https://metalcraft.com",
-    title: "MetalCraft | Custom Metal & Woodworking",
+    title: "MetalCraft | Op Maat Metaal & Houtwerk",
     description:
-      "Premium handcrafted metal and wood furniture, custom fabrication, and architectural elements.",
+      "Premium handgemaakte metaal- en houten meubels, op maat vervaardiging en architecturale elementen.",
     siteName: "MetalCraft",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MetalCraft | Custom Metal & Woodworking",
+    title: "MetalCraft | Op Maat Metaal & Houtwerk",
     description:
-      "Premium handcrafted metal and wood furniture, custom fabrication, and architectural elements.",
+      "Premium handgemaakte metaal- en houten meubels, op maat vervaardiging en architecturale elementen.",
   },
 };
 
@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="nl-BE" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${oswald.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
       >

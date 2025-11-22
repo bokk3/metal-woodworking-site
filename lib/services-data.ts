@@ -8,27 +8,27 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
-    title: "Custom Metalwork",
+    title: "Op Maat Metaalwerk",
     description:
-      "Bespoke metal fabrication including gates, railings, and structural elements designed to your specifications.",
+      "Op maat gemaakte metaalbewerking inclusief poorten, leuningen en structurele elementen ontworpen volgens uw specificaties.",
     icon: Hammer,
   },
   {
-    title: "Fine Woodworking",
+    title: "Fijn Houtwerk",
     description:
-      "Handcrafted furniture and cabinetry using premium hardwoods with attention to grain and detail.",
+      "Handgemaakte meubels en kasten met premium hardhout met aandacht voor nerf en detail.",
     icon: Trees,
   },
   {
-    title: "Welding & Fabrication",
+    title: "Lassen & Vervaardiging",
     description:
-      "Precision TIG and MIG welding for steel, aluminum, and stainless steel projects.",
+      "Precisie TIG- en MIG-lassen voor staal-, aluminium- en roestvrijstalen projecten.",
     icon: Zap,
   },
   {
-    title: "Design Consultation",
+    title: "Ontwerpadvies",
     description:
-      "Collaborative design process to bring your vision to life with 3D modeling and material selection.",
+      "Collaboratief ontwerpproces om uw visie tot leven te brengen met 3D-modellering en materiaalkeuze.",
     icon: PencilRuler,
   },
 ];

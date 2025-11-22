@@ -61,16 +61,16 @@ export function ContactForm() {
 
     // Client-side Validation
     const errors: Record<string, string> = {};
-    if (!name.trim()) errors.name = "Name is required";
+    if (!name.trim()) errors.name = "Naam is verplicht";
     if (!email.trim()) {
-      errors.email = "Email is required";
+      errors.email = "E-mail is verplicht";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.email = "Invalid email format";
+      errors.email = "Ongeldig e-mailformaat";
     }
     if (!message.trim()) {
-      errors.message = "Message is required";
+      errors.message = "Bericht is verplicht";
     } else if (message.length < 10) {
-      errors.message = "Message must be at least 10 characters";
+      errors.message = "Bericht moet minimaal 10 tekens bevatten";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -90,10 +90,10 @@ export function ContactForm() {
         setAppointmentDate(undefined);
         setSelectedFile(null);
       } else {
-        setError(result.error || "Something went wrong");
+        setError(result.error || "Er is iets misgegaan");
       }
     } catch {
-      setError("Failed to send message. Please try again.");
+      setError("Bericht verzenden mislukt. Probeer het opnieuw.");
     } finally {
       setIsLoading(false);
     }
@@ -109,16 +109,16 @@ export function ContactForm() {
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 text-green-500 mb-6">
           <CheckCircle className="w-8 h-8" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+        <h3 className="text-2xl font-bold text-white mb-2">Bericht Verzonden!</h3>
         <p className="text-muted-foreground mb-6">
-          Thank you for reaching out. We&apos;ll get back to you shortly.
+          Bedankt voor uw bericht. We nemen zo spoedig mogelijk contact met u op.
         </p>
         <Button
           variant="outline"
           onClick={() => setSuccess(false)}
           className="border-bronze text-bronze hover:bg-bronze hover:text-white"
         >
-          Send Another Message
+          Nog een Bericht Versturen
         </Button>
       </motion.div>
     );
@@ -132,7 +132,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-foreground">
-            Name <span className="text-red-500">*</span>
+            Naam <span className="text-red-500">*</span>
           </label>
           <Input
             id="name"
@@ -150,7 +150,7 @@ export function ContactForm() {
             htmlFor="email"
             className="text-sm font-medium text-foreground"
           >
-            Email <span className="text-red-500">*</span>
+            E-mail <span className="text-red-500">*</span>
           </label>
           <Input
             id="email"
@@ -172,7 +172,7 @@ export function ContactForm() {
             htmlFor="phone"
             className="text-sm font-medium text-foreground"
           >
-            Phone (Optional)
+            Telefoon (Optioneel)
           </label>
           <Input
             id="phone"
@@ -187,18 +187,18 @@ export function ContactForm() {
             htmlFor="projectType"
             className="text-sm font-medium text-foreground"
           >
-            Project Type
+            Projecttype
           </label>
           <select
             id="projectType"
             name="projectType"
             className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:border-bronze"
           >
-            <option value="custom-metalwork">Custom Metalwork</option>
-            <option value="fine-woodworking">Fine Woodworking</option>
-            <option value="welding">Welding & Fabrication</option>
-            <option value="design">Design Consultation</option>
-            <option value="other">Other</option>
+            <option value="custom-metalwork">Op Maat Metaalwerk</option>
+            <option value="fine-woodworking">Fijn Houtwerk</option>
+            <option value="welding">Lassen & Vervaardiging</option>
+            <option value="design">Ontwerpadvies</option>
+            <option value="other">Anders</option>
           </select>
         </div>
       </div>
@@ -206,7 +206,7 @@ export function ContactForm() {
       {/* Budget Range Slider */}
       <div className="space-y-4">
         <label className="text-sm font-medium text-foreground">
-          Project Budget Range: ${budget[0].toLocaleString()}+
+          Project Budget Bereik: ${budget[0].toLocaleString()}+
         </label>
         <Slider
           value={budget}
@@ -226,7 +226,7 @@ export function ContactForm() {
       {/* Preferred Contact Method */}
       <div className="space-y-3">
         <label className="text-sm font-medium text-foreground">
-          Preferred Contact Method
+          Voorkeur Contactmethode
         </label>
         <RadioGroup
           value={preferredContact}
@@ -235,11 +235,11 @@ export function ContactForm() {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="email" id="email-contact" />
-              <Label htmlFor="email-contact">Email</Label>
+              <Label htmlFor="email-contact">E-mail</Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="phone" id="phone-contact" />
-              <Label htmlFor="phone-contact">Phone</Label>
+              <Label htmlFor="phone-contact">Telefoon</Label>
             </div>
           </div>
         </RadioGroup>
@@ -249,7 +249,7 @@ export function ContactForm() {
       {/* Appointment Date Picker */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-foreground">
-          Preferred Appointment Date (Optional)
+          Voorkeur Afspraakdatum (Optioneel)
         </label>
         <Popover>
           <PopoverTrigger asChild>
@@ -261,7 +261,7 @@ export function ContactForm() {
               )}
             >
               <CalendarIcon className="mr-2 h-4 w-4" />
-              {appointmentDate ? format(appointmentDate, "PPP") : "Pick a date"}
+              {appointmentDate ? format(appointmentDate, "PPP") : "Kies een datum"}
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0" align="start">
@@ -286,7 +286,7 @@ export function ContactForm() {
       {/* File Upload */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-foreground">
-          Reference Images (Optional)
+          Referentiebeelden (Optioneel)
         </label>
         <label
           htmlFor="fileUpload"
@@ -320,10 +320,10 @@ export function ContactForm() {
             <>
               <Upload className="mx-auto h-8 w-8 text-muted-foreground mb-2" />
               <p className="text-sm text-muted-foreground mb-2">
-                Click to upload or drag and drop
+                Klik om te uploaden of sleep en zet neer
               </p>
               <p className="text-xs text-muted-foreground">
-                PNG, JPG up to 10MB
+                PNG, JPG tot 10MB
               </p>
             </>
           )}
@@ -343,12 +343,12 @@ export function ContactForm() {
           htmlFor="message"
           className="text-sm font-medium text-foreground"
         >
-          Message <span className="text-red-500">*</span>
+          Bericht <span className="text-red-500">*</span>
         </label>
         <Textarea
           id="message"
           name="message"
-          placeholder="Tell us about your project..."
+          placeholder="Vertel ons over uw project..."
           className="min-h-[120px] bg-background border-border focus:border-bronze"
           aria-invalid={!!validationErrors.message}
         />
@@ -372,10 +372,10 @@ export function ContactForm() {
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Sending...
+            Verzenden...
           </>
         ) : (
-          "Send Message"
+          "Bericht Versturen"
         )}
       </Button>
     </form>

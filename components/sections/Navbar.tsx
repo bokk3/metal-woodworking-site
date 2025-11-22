@@ -11,11 +11,11 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { name: "Home", href: "/#home" },
   { name: "Portfolio", href: "/#portfolio" },
-  { name: "Services", href: "/#services" },
-  { name: "About", href: "/#about" },
+  { name: "Diensten", href: "/#services" },
+  { name: "Over Ons", href: "/#about" },
   { name: "Contact", href: "/#contact" },
   { name: "Blog", href: "/blog" },
-  { name: "Quote", href: "/quote-calculator" },
+  { name: "Offerte", href: "/quote-calculator" },
 ];
 
 export function Navbar() {
@@ -59,7 +59,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button className="bg-bronze hover:bg-bronze-dark text-white font-semibold">
-            Get Quote
+            Offerte Aanvragen
           </Button>
         </nav>
 

@@ -19,7 +19,7 @@ export function Services() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className={cn(typography.h2, "text-foreground mb-6")}>
-            Expert <span className="text-steel">Craftsmanship</span>
+            Deskundig <span className="text-steel">Vakmanschap</span>
           </h2>
           <p
             className={cn(
@@ -27,8 +27,7 @@ export function Services() {
               "text-muted-foreground max-w-2xl mx-auto"
             )}
           >
-            We combine traditional techniques with modern precision to deliver
-            exceptional quality in every project.
+            We combineren traditionele technieken met moderne precisie om uitzonderlijke kwaliteit te leveren in elk project.
           </p>
         </div>
 
