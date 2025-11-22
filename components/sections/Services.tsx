@@ -13,7 +13,7 @@ export function Services() {
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(#cd7f32_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#cd7f32_1px,transparent_1px)] bg-[size:16px_16px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

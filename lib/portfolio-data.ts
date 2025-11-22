@@ -6,81 +6,76 @@ export interface PortfolioItem {
   category: Category;
   image: string;
   description: string;
+  specs?: string;
+  materials?: string;
+  year?: string;
 }
 
 export const portfolioItems: PortfolioItem[] = [
   {
     id: "1",
-    title: "Industrial Steel Table",
+    title: "The Monolith Coffee Table",
     category: "metal",
-    image:
-      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1000&auto=format&fit=crop",
-    description: "Custom welded steel dining table with industrial finish.",
+    image: "/images/portfolio/metal-table.png",
+    description:
+      "A statement piece forged from solid steel with a matte black powder coat finish. Geometric lines meet industrial durability.",
+    specs: '48" x 24" x 16"',
+    materials: "Solid Steel, Powder Coat",
+    year: "2024",
   },
   {
     id: "2",
-    title: "Walnut Live Edge Desk",
+    title: "Walnut Executive Desk",
     category: "wood",
-    image:
-      "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000&auto=format&fit=crop",
-    description: "Handcrafted walnut desk with natural live edge details.",
+    image: "/images/portfolio/wood-desk.png",
+    description:
+      "Hand-selected live edge walnut slab atop minimalist steel legs. Designed for the modern executive who values organic warmth.",
+    specs: '72" x 30" x 30"',
+    materials: "Black Walnut, Brushed Steel",
+    year: "2023",
   },
   {
     id: "3",
-    title: "Steel & Oak Shelving",
+    title: "Industrial Library Shelving",
     category: "combined",
-    image:
-      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/portfolio/shelf.png",
     description:
-      "Floor-to-ceiling shelving unit mixing blackened steel and white oak.",
+      "Floor-to-ceiling shelving unit combining blackened steel piping with reclaimed oak planks. Perfect for displaying curated collections.",
+    specs: '96" x 12" x 108"',
+    materials: "Blackened Steel Pipe, Reclaimed Oak",
+    year: "2024",
   },
   {
     id: "4",
-    title: "Modern Metal Railing",
+    title: "Cantilever Bedside Table",
     category: "metal",
-    image:
-      "https://images.unsplash.com/photo-1519947486511-46149fa0a254?q=80&w=1000&auto=format&fit=crop",
-    description: "Sleek horizontal bar railing for a contemporary staircase.",
+    image: "/images/portfolio/metal-table.png", // Reusing for demo, ideally unique
+    description:
+      "Gravity-defying design featuring a single bent steel sheet. Minimalist, functional, and strikingly modern.",
+    specs: '18" x 18" x 24"',
+    materials: "Bent Steel",
+    year: "2023",
   },
   {
     id: "5",
-    title: "Reclaimed Wood Coffee Table",
+    title: "Oak Dining Table",
     category: "wood",
-    image:
-      "https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=1000&auto=format&fit=crop",
-    description: "Rustic coffee table built from 100-year-old barn wood.",
+    image: "/images/portfolio/wood-desk.png", // Reusing for demo
+    description:
+      "A gathering place for generations. Solid oak top with traditional joinery and a durable oil finish.",
+    specs: '96" x 40" x 30"',
+    materials: "White Oak",
+    year: "2024",
   },
   {
     id: "6",
-    title: "Floating Staircase",
+    title: "Media Console",
     category: "combined",
-    image:
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/portfolio/shelf.png", // Reusing for demo
     description:
-      "Architectural floating stairs with steel stringer and wood treads.",
-  },
-  {
-    id: "7",
-    title: "Custom Steel Gates",
-    category: "metal",
-    image:
-      "https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?q=80&w=1000&auto=format&fit=crop",
-    description: "Ornamental driveway gates with automated entry system.",
-  },
-  {
-    id: "8",
-    title: "Mahogany Conference Table",
-    category: "wood",
-    image:
-      "https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1000&auto=format&fit=crop",
-    description: "12-foot solid mahogany table for a corporate boardroom.",
-  },
-  {
-    id: "9",
-    title: "Industrial Bar Stools",
-    category: "combined",
-    image:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop",
-    description: "Adjustable height stools with leather seats and metal bases.",
+      "Sleek storage solution with perforated metal doors and a walnut casing. Hides cables while displaying style.",
+    specs: '72" x 18" x 24"',
+    materials: "Perforated Steel, Walnut",
+    year: "2024",
   },
 ];
