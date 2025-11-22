@@ -1,0 +1,106 @@
+# Development Rules for Gemini
+
+## Code Generation Standards
+
+### Framework Rules
+- ALWAYS use Next.js 15 App Router (never Pages Router)
+- Default to Server Components; only use 'use client' when needed for:
+  - useState, useEffect, other React hooks
+  - Event handlers (onClick, onChange)
+  - Browser APIs (window, document)
+  - Third-party libraries requiring client-side
+- TypeScript strict mode - no any types
+
+### Styling Rules
+- ONLY use Tailwind utility classes (core utilities, no arbitrary values unless necessary)
+- shadcn/ui components for all UI elements
+- Mobile-first: write sm: md: lg: xl: breakpoints
+- Dark mode classes: bg-[#0a0a0a] text-white
+- Consistent spacing: p-4, p-8, p-12, p-16 pattern
+- NO custom CSS files, NO styled-components, NO emotion, NO emojis, YES lucide-react icons.
+
+### Component Patterns
+```typescript
+// Server Component (default)
+interface Props {
+  title: string;
+  items: Item[];
+}
+
+export default function Section({ title, items }: Props) {
+  return <div>...</div>;
+}
+
+// Client Component (when needed)
+'use client';
+
+import { useState } from 'react';
+
+export function InteractiveGallery() {
+  const [filter, setFilter] = useState('all');
+  return <div>...</div>;
+}
+```
+
+### Animation Rules
+- Framer Motion for complex animations
+- Use motion.div, motion.section, etc.
+- Simple transitions: transition-all duration-300
+- Respect reduced motion: motion-reduce:transition-none
+- Scroll animations: IntersectionObserver or Framer's viewport props
+
+### File Structure
+```
+/app
+  /page.tsx (homepage)
+  /layout.tsx
+  /globals.css
+  /api
+/components
+  /ui (shadcn)
+  /sections
+    /Hero.tsx
+    /Portfolio.tsx
+    /Services.tsx
+  /shared
+/lib
+  /utils.ts
+  /db.ts
+/public
+  /images
+```
+
+### Naming Conventions
+- Components: PascalCase (Hero.tsx, PortfolioCard.tsx)
+- Utils/functions: camelCase (cn, formatDate)
+- Constants: UPPER_SNAKE_CASE
+- CSS classes: kebab-case (only in rare custom CSS)
+
+### Database Patterns
+- Use Server Actions for data mutations
+- Async/await for all DB operations
+- Proper error handling with try/catch
+- Type-safe queries with TypeScript
+
+### What NOT to Do
+- ❌ No localStorage/sessionStorage in initial render (causes hydration issues)
+- ❌ No inline styles (use Tailwind)
+- ❌ No default exports except page.tsx files
+- ❌ No console.logs in production code
+- ❌ No unoptimized images (always use next/image)
+- ❌ No client components when server components work
+
+### Quality Checklist
+Before completing any component:
+- [ ] TypeScript types defined
+- [ ] Responsive on all breakpoints
+- [ ] Accessible (ARIA labels, semantic HTML)
+- [ ] Loading/error states handled
+- [ ] Images optimized
+- [ ] Animations smooth (60fps)
+
+### SEO Requirements
+- Metadata in layout.tsx and page.tsx
+- Alt text on all images
+- Semantic HTML (header, main, section, article)
+- Structured data where applicable
