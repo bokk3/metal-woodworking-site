@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,6 +45,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased bg-background text-foreground flex flex-col min-h-screen`}
       >
+        <ScrollProgress />
+        <CustomCursor />
         <Navbar />
         <main className="grow">{children}</main>
         <Footer />

@@ -3,14 +3,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { ParallaxSection } from "@/components/effects/ParallaxSection";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-darkBg">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 bg-size-[4rem_4rem] bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
+        <ParallaxSection offset={30} className="absolute inset-0">
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 bg-size-[4rem_4rem] bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
+        </ParallaxSection>
 
         {/* Radial Gradient for depth */}
         <div className="absolute inset-0 bg-radial-gradient from-transparent via-darkBg/50 to-darkBg" />
