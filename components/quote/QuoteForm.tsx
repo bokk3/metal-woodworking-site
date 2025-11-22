@@ -9,12 +9,13 @@ import {
   getQuoteRange,
 } from "@/lib/quote-calculator";
 import { generateQuotePDF } from "./QuotePDF";
+import { submitQuote } from "@/app/actions/quote";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
-import { FileDown, Calculator } from "lucide-react";
+import { FileDown, Calculator, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function QuoteForm() {
@@ -31,15 +32,60 @@ export function QuoteForm() {
   });
 
   const [estimatedPrice, setEstimatedPrice] = useState<number>(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleCalculate = () => {
     const price = calculateQuote(formData);
     setEstimatedPrice(price);
+    setSubmitSuccess(false);
+    setSubmitError(null);
   };
 
   const handleDownloadPDF = () => {
     if (estimatedPrice > 0) {
       generateQuotePDF(formData, estimatedPrice);
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!formData.projectType || !formData.material || !formData.length || !formData.width || estimatedPrice <= 0) {
+      setSubmitError("Vul alle verplichte velden in en bereken eerst een schatting.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+
+    try {
+      const submitFormData = new FormData();
+      submitFormData.append("projectType", formData.projectType);
+      submitFormData.append("material", formData.material);
+      submitFormData.append("length", formData.length.toString());
+      submitFormData.append("width", formData.width.toString());
+      submitFormData.append("quantity", formData.quantity.toString());
+      submitFormData.append("estimatedPrice", estimatedPrice.toString());
+      if (formData.name) submitFormData.append("name", formData.name);
+      if (formData.email) submitFormData.append("email", formData.email);
+      if (formData.phone) submitFormData.append("phone", formData.phone);
+      if (formData.notes) submitFormData.append("notes", formData.notes);
+
+      const result = await submitQuote(submitFormData);
+
+      if (result.success) {
+        setSubmitSuccess(true);
+        setSubmitError(null);
+      } else {
+        setSubmitError(result.error || "Er is iets misgegaan bij het verzenden.");
+        setSubmitSuccess(false);
+      }
+    } catch (error) {
+      setSubmitError("Er is een fout opgetreden. Probeer het later opnieuw.");
+      setSubmitSuccess(false);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -271,17 +317,55 @@ export function QuoteForm() {
                 * Dit is een schatting. De uiteindelijke prijs kan variëren op basis van projectcomplexiteit en materiaalbeschikbaarheid.
               </p>
             </div>
-            <div className="mt-6 flex gap-4">
-              <Button
-                onClick={handleDownloadPDF}
-                className="bg-bronze hover:bg-bronze-dark text-white"
-              >
-                <FileDown className="mr-2 h-4 w-4" />
-                PDF Offerte Downloaden
-              </Button>
-              <Button variant="outline" asChild>
-                <a href="/contact">Neem Contact Op om Door te Gaan</a>
-              </Button>
+            <div className="mt-6 space-y-4">
+              {submitSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 text-green-500 bg-green-500/10 p-4 rounded-md"
+                >
+                  <CheckCircle className="w-5 h-5" />
+                  <p>Offerte succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.</p>
+                </motion.div>
+              )}
+
+              {submitError && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 text-red-500 bg-red-500/10 p-4 rounded-md"
+                >
+                  <AlertCircle className="w-5 h-5" />
+                  <p>{submitError}</p>
+                </motion.div>
+              )}
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  onClick={handleDownloadPDF}
+                  className="bg-bronze hover:bg-bronze-dark text-white"
+                >
+                  <FileDown className="mr-2 h-4 w-4" />
+                  PDF Offerte Downloaden
+                </Button>
+                <Button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting || estimatedPrice <= 0}
+                  className="bg-bronze hover:bg-bronze-dark text-white"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Verzenden...
+                    </>
+                  ) : (
+                    "Offerte Verzenden"
+                  )}
+                </Button>
+                <Button variant="outline" asChild>
+                  <a href="/contact">Neem Contact Op</a>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}

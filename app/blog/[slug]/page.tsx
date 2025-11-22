@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts
+    .filter((post) => post.slug && post.slug !== "undefined" && post.slug !== "")
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({
@@ -17,6 +19,12 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
+  if (!params.slug || params.slug === "undefined" || params.slug === "") {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
   const post = getPostBySlug(params.slug);
 
   if (!post) {

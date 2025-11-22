@@ -27,24 +27,34 @@ export function getAllPosts(): BlogPost[] {
   const allPostsData = fileNames
     .filter((fileName) => fileName.endsWith(".mdx"))
     .map((fileName) => {
-      const slug = fileName.replace(/\.mdx$/, "");
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
-      const { text } = readingTime(content);
+      try {
+        const slug = fileName.replace(/\.mdx$/, "");
+        if (!slug) return null; // Skip if slug is empty
+        
+        const fullPath = path.join(postsDirectory, fileName);
+        if (!fs.existsSync(fullPath)) return null; // Skip if file doesn't exist
+        
+        const fileContents = fs.readFileSync(fullPath, "utf8");
+        const { data, content } = matter(fileContents);
+        const { text } = readingTime(content);
 
-      return {
-        slug,
-        title: data.title || "",
-        date: data.date || "",
-        category: data.category || "Uncategorized",
-        excerpt: data.excerpt || "",
-        image: data.image || "/images/blog/default.png",
-        author: data.author || "MetalCraft Team",
-        readingTime: text,
-        content,
-      } as BlogPost;
-    });
+        return {
+          slug,
+          title: data.title || "",
+          date: data.date || "",
+          category: data.category || "Uncategorized",
+          excerpt: data.excerpt || "",
+          image: data.image || "/images/blog/default.png",
+          author: data.author || "MetalCraft Team",
+          readingTime: text,
+          content,
+        } as BlogPost;
+      } catch (error) {
+        console.error(`Error reading blog post ${fileName}:`, error);
+        return null;
+      }
+    })
+    .filter((post): post is BlogPost => post !== null && post.slug !== undefined && post.slug !== "");
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }

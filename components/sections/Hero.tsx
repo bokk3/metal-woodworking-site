@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Hero image */}
