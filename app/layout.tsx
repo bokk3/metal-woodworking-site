@@ -10,13 +10,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Metal & Wood | Custom Handcrafted Furniture",
+  title: {
+    default: "MetalCraft | Custom Metal & Woodworking",
+    template: "%s | MetalCraft",
+  },
   description:
-    "Premium handcrafted metal and wood furniture for your home and office.",
+    "Premium handcrafted metal and wood furniture, custom fabrication, and architectural elements. Designed to elevate your living and working spaces.",
+  keywords: [
+    "metalwork",
+    "woodworking",
+    "custom furniture",
+    "fabrication",
+    "welding",
+    "industrial design",
+  ],
+  authors: [{ name: "MetalCraft Team" }],
+  creator: "MetalCraft",
   openGraph: {
-    title: "Metal & Wood | Custom Handcrafted Furniture",
-    description:
-      "Premium handcrafted metal and wood furniture for your home and office.",
     type: "website",
     locale: "en_US",
     siteName: "Metal & Wood",

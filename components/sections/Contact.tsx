@@ -1,11 +1,20 @@
+"use client";
+
 import { ContactForm } from "./Contact/ContactForm";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Contact() {
   return (
     <section id="contact" className="py-24 bg-background relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Get in <span className="text-bronze">Touch</span>
           </h2>
@@ -13,11 +22,17 @@ export function Contact() {
             Ready to start your project? Contact us today for a consultation or
             quote.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Contact Info Sidebar */}
-          <div className="lg:col-span-1 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="lg:col-span-1 space-y-8"
+          >
             <div className="bg-card p-8 rounded-lg border border-border/50 h-full">
               <h3 className="text-xl font-bold text-foreground mb-6">
                 Contact Information
@@ -89,12 +104,18 @@ export function Contact() {
                 </ul>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2"
+          >
             <ContactForm />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
